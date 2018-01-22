@@ -80,7 +80,7 @@ const StyledText = styled.Text`
 `
 
 const Margin = styled.View`
-  margin: 30px 0 30px 20px;
+  margin: 45px 0 30px 20px;
 `
 
 const MarginRight = styled.View`

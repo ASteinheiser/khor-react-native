@@ -23,7 +23,16 @@ const uiTheme = {
   },
   toolbar: {
     container: {
-      height: 65
+      height: 80
+    },
+    centerElementContainer: {
+      paddingTop: 15
+    },
+    leftElementContainer: {
+      paddingTop: 15
+    },
+    rightElementContainer: {
+      paddingTop: 15
     }
   }
 }
