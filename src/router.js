@@ -1,10 +1,9 @@
-import React                            from 'react'
-import { ScrollView, Text, View }       from 'react-native'
-import { Icon }                         from 'react-native-material-ui'
-import { DrawerNavigator, DrawerItems } from 'react-navigation'
-import { fade }                         from 'material-ui/utils/colorManipulator'
-import styled                           from 'styled-components/native'
-import { pink700, blueGrey700, white }  from '../colors.js'
+import React                             from 'react'
+import { ScrollView, Text, View, Image } from 'react-native'
+import { DrawerNavigator, DrawerItems }  from 'react-navigation'
+import { fade }                          from 'material-ui/utils/colorManipulator'
+import styled                            from 'styled-components/native'
+import { pink700, blueGrey700, white }   from '../colors.js'
 
 import Pantry        from './routers/pantry.js'
 import Recipes       from './routers/recipes.js'
@@ -13,21 +12,23 @@ import WatchPage     from './routers/watch-page.js'
 import ShoppingList  from './routers/shopping-list.js'
 import Settings      from './routers/settings.js'
 
+import logo from '../assets/icons/khor_icon_trans.png'
+
 const Router = DrawerNavigator(
   {
     Inventory: {
       screen: Pantry
     },
-    'Shopping List': {
-      screen: ShoppingList
-    },
     Recipes: {
       screen: Recipes
+    },
+    'Shopping List': {
+      screen: ShoppingList
     },
     'Task List': {
       screen: Schedule
     },
-    'Fitbit Dashboard': {
+    'Fitness Dashboard': {
       screen: WatchPage
     },
     Settings: {
@@ -43,11 +44,15 @@ const Router = DrawerNavigator(
           <Margin>
             <FlexRow>
               <MarginRight>
-                <Icon name='trending-up'/>
+                <Logo source={logo}/>
               </MarginRight>
-              <StyledText>
-                Pantry Sweep
-              </StyledText>
+              <FlexCenter>
+                <Underline>
+                  <StyledText>
+                    KHOR
+                  </StyledText>
+                </Underline>
+              </FlexCenter>
             </FlexRow>
           </Margin>
           <DrawerItems {...props}/>
@@ -70,18 +75,35 @@ export default Router
 
 const StyledText = styled.Text`
   font-size: 18px;
-  color: ${white};
+  font-weight: bold;
+  color: ${pink700};
 `
 
 const Margin = styled.View`
-margin: 30px 0 30px 20px;
+  margin: 30px 0 30px 20px;
 `
 
 const MarginRight = styled.View`
-  margin-right: 10px;
+  margin-right: 20px;
 `
 
 const FlexRow = styled.View`
   flex: 1;
   flex-direction: row;
+`
+
+const Logo = styled.Image`
+  width: 50px;
+  height: 50px;
+`
+
+const FlexCenter = styled.View`
+  flex-direction: column;
+  justify-content: space-around;
+`
+
+const Underline = styled.View`
+  padding: 3px 7px;
+  border-width: 2px;
+  border-color: ${blueGrey700};
 `

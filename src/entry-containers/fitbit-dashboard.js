@@ -8,7 +8,7 @@ class FitbitDashboard extends React.Component {
     return (
       <Flex>
         <Toolbar
-          centerElement='Fitbit Dashboard'
+          centerElement='Fitness Dashboard'
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
