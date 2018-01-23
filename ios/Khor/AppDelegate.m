@@ -8,6 +8,8 @@
  */
 
 #import "AppDelegate.h"
+// react-native-splash-screen
+#import "SplashScreen.h"
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -31,6 +33,8 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  // react-native-splash-screen
+  [SplashScreen show];
   return YES;
 }
 
