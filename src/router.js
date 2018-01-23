@@ -99,8 +99,8 @@ const FlexRow = styled.View`
 `
 
 const Logo = styled.Image`
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 `
 
 const FlexCenter = styled.View`
