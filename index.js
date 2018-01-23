@@ -1,10 +1,17 @@
-import React             from 'react'
-import { AppRegistry }   from 'react-native'
-import { ThemeProvider } from 'react-native-material-ui'
-import { fade }          from 'material-ui/utils/colorManipulator'
+import React                     from 'react'
+import { AppRegistry, Platform } from 'react-native'
+import { ThemeProvider }         from 'react-native-material-ui'
+import { fade }                  from 'material-ui/utils/colorManipulator'
 
 import Router                          from './src/router.js'
 import { pink700, blueGrey700, white } from './colors.js'
+
+let height = 90
+let padding = 25
+if (Platform.OS === 'ios') {
+  height = 80
+  padding = 15
+}
 
 const uiTheme = {
   // spacing: spacing,
@@ -23,16 +30,16 @@ const uiTheme = {
   },
   toolbar: {
     container: {
-      height: 80
+      height: height
     },
     centerElementContainer: {
-      paddingTop: 15
+      paddingTop: padding
     },
     leftElementContainer: {
-      paddingTop: 15
+      paddingTop: padding
     },
     rightElementContainer: {
-      paddingTop: 15
+      paddingTop: padding
     }
   }
 }

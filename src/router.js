@@ -1,9 +1,9 @@
-import React                             from 'react'
-import { ScrollView, Text, View, Image } from 'react-native'
-import { DrawerNavigator, DrawerItems }  from 'react-navigation'
-import { fade }                          from 'material-ui/utils/colorManipulator'
-import styled                            from 'styled-components/native'
-import { pink700, blueGrey700, white }   from '../colors.js'
+import React                                       from 'react'
+import { ScrollView, Text, View, Image, Platform } from 'react-native'
+import { DrawerNavigator, DrawerItems }            from 'react-navigation'
+import { fade }                                    from 'material-ui/utils/colorManipulator'
+import styled                                      from 'styled-components/native'
+import { pink700, blueGrey700, white }             from '../colors.js'
 
 import Pantry        from './routers/pantry.js'
 import Recipes       from './routers/recipes.js'
@@ -79,9 +79,15 @@ const StyledText = styled.Text`
   color: ${pink700};
 `
 
-const Margin = styled.View`
-  margin: 45px 0 30px 20px;
+let Margin = styled.View`
+  margin: 55px 0 30px 20px;
 `
+
+if (Platform.OS === 'ios') {
+  Margin = styled.View`
+    margin: 45px 0 30px 20px;
+  `
+}
 
 const MarginRight = styled.View`
   margin-right: 20px;
