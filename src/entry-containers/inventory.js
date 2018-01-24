@@ -54,7 +54,7 @@ class Inventory extends React.Component {
     return (
       <Flex>
         <Toolbar
-          centerElement='Inventory'
+          centerElement='Pantry'
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />

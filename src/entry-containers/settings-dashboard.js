@@ -1,9 +1,16 @@
-import React                       from 'react'
-import { ScrollView, View, Text }  from 'react-native'
-import { Icon, Toolbar }           from 'react-native-material-ui'
-import styled                      from 'styled-components/native'
+import React                      from 'react'
+import { ScrollView, View, Text } from 'react-native'
+import { Icon, Toolbar }          from 'react-native-material-ui'
+import styled                     from 'styled-components/native'
+
+import Button from '../components/button.js'
 
 class SettingsDashboard extends React.Component {
+
+  logout = () => {
+    // this.props.navigation.navigate('Login')
+  }
+
   render() {
     return (
       <Flex>
@@ -14,14 +21,11 @@ class SettingsDashboard extends React.Component {
         />
         <Container>
           <Margin>
-            <FlexRow>
-              <MarginRight>
-                <Icon name='settings'/>
-              </MarginRight>
-              <StyledText>
-                Settings Page under construction...
-              </StyledText>
-            </FlexRow>
+            <Button
+              accent
+              icon="subdirectory-arrow-left"
+              text="Logout"
+              onPress={this.logout} />
           </Margin>
         </Container>
       </Flex>
@@ -41,18 +45,4 @@ const Container = styled.ScrollView`
 
 const Margin = styled.View`
   margin: 25px 20px;
-`
-
-const StyledText = styled.Text`
-  font-size: 16px;
-  color: #ffffff;
-`
-
-const FlexRow = styled.View`
-  flex: 1;
-  flex-direction: row;
-`
-
-const MarginRight = styled.View`
-  margin-right: 10px;
 `
