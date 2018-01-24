@@ -2,7 +2,6 @@ import React                      from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { Icon, Toolbar }          from 'react-native-material-ui'
 import styled                     from 'styled-components/native'
-import SplashScreen               from 'react-native-splash-screen'
 
 import Button   from '../components/button.js'
 import ListItem from '../components/list-item.js'
@@ -42,8 +41,6 @@ class Inventory extends React.Component {
         }
       })
       .catch(error => console.log(error))
-
-    SplashScreen.hide()
   }
 
   nextPage = () => {

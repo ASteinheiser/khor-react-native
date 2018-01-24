@@ -1,9 +1,14 @@
-import React                       from 'react'
-import { ScrollView, View, Text }  from 'react-native'
-import { Icon, Toolbar }           from 'react-native-material-ui'
-import styled                      from 'styled-components/native'
+import React                      from 'react'
+import { ScrollView, View, Text } from 'react-native'
+import { Icon, Toolbar }          from 'react-native-material-ui'
+import styled                     from 'styled-components/native'
+import SplashScreen               from 'react-native-splash-screen'
 
 class Dashboard extends React.Component {
+  componentWillMount () {
+    SplashScreen.hide()
+  }
+
   render() {
     return (
       <Flex>
