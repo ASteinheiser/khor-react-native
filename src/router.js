@@ -5,9 +5,9 @@ import { fade }                                    from 'material-ui/utils/color
 import styled                                      from 'styled-components/native'
 import { pink700, blueGrey700, white }             from '../colors.js'
 
+import Dashboard     from './routers/dashboard.js'
 import Pantry        from './routers/pantry.js'
 import Recipes       from './routers/recipes.js'
-import Schedule      from './routers/schedule.js'
 import WatchPage     from './routers/watch-page.js'
 import ShoppingList  from './routers/shopping-list.js'
 import Settings      from './routers/settings.js'
@@ -16,7 +16,13 @@ import logo from '../assets/icons/khor_icon_trans.png'
 
 const Router = DrawerNavigator(
   {
-    Inventory: {
+    'Dashboard': {
+      screen: Dashboard
+    },
+    'Fitness': {
+      screen: WatchPage
+    },
+    Pantry: {
       screen: Pantry
     },
     Recipes: {
@@ -25,18 +31,12 @@ const Router = DrawerNavigator(
     'Shopping List': {
       screen: ShoppingList
     },
-    'Task List': {
-      screen: Schedule
-    },
-    'Fitness Dashboard': {
-      screen: WatchPage
-    },
     Settings: {
       screen: Settings
     }
   },
   {
-    initialRouteName: 'Inventory',
+    initialRouteName: 'Dashboard',
     drawerBackgroundColor: '#303030',
     contentComponent: props => {
       return (
