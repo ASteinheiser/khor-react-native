@@ -1,7 +1,11 @@
 import React                      from 'react'
 import { ScrollView, View, Text } from 'react-native'
+import { connect }                from 'react-redux'
+import { bindActionCreators }     from 'redux';
 import { Icon, Toolbar }          from 'react-native-material-ui'
 import styled                     from 'styled-components/native'
+
+import { setTheme } from '../../redux/actions/theme'
 
 import Button from '../components/button.js'
 
@@ -24,6 +28,13 @@ class SettingsDashboard extends React.Component {
             <Button
               accent
               icon="subdirectory-arrow-left"
+              text="Set Theme"
+              onPress={() => {this.props.setTheme('greenTheme')}} />
+          </Margin>
+          <Margin>
+            <Button
+              accent
+              icon="subdirectory-arrow-left"
               text="Logout"
               onPress={this.logout} />
           </Margin>
@@ -32,7 +43,14 @@ class SettingsDashboard extends React.Component {
     )
   }
 }
-export default SettingsDashboard
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    setTheme
+  }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SettingsDashboard)
 
 const Flex = styled.View`
   flex: 1;
