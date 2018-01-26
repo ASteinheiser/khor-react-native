@@ -1,12 +1,17 @@
-import { AppRegistry, Platform } from 'react-native'
-import deepAssign                from 'deep-assign'
-import cloneDeep                 from 'lodash.clonedeep'
-import { fade }                  from 'material-ui/utils/colorManipulator'
+import { Platform } from 'react-native'
+import deepAssign   from 'deep-assign'
+import cloneDeep    from 'lodash.clonedeep'
+import { fade }     from 'material-ui/utils/colorManipulator'
 
-import { pink700, blueGrey700, white, green900 } from './colors.js'
+import {
+  pink700,
+  blueGrey700,
+  white,
+  green900 } from './colors.js'
 
 let height = 90
 let padding = 25
+
 if (Platform.OS === 'ios') {
   height = 80
   padding = 15
@@ -44,7 +49,7 @@ export const defaultTheme = {
 }
 
 export const greenTheme = deepAssign({}, cloneDeep(defaultTheme) ,{
-  palette:{
+  palette: {
     primaryColor: green900,
   }
 })

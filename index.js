@@ -1,22 +1,18 @@
-import React                     from 'react'
-import { Provider, connect }              from 'react-redux'
-import { AppRegistry }           from 'react-native'
-import { ThemeProvider }         from 'react-native-material-ui'
+import React                 from 'react'
+import { Provider, connect } from 'react-redux'
+import { AppRegistry }       from 'react-native'
+import { ThemeProvider }     from 'react-native-material-ui'
 
+import Router    from './src/router.js'
 import { store } from './redux/config'
-
-
-import Router                          from './src/router.js'
-
 
 function mapStateToProps(state) {
   return {
     theme: state.theme
   }
 }
-class WrrapedThemeProvider extends React.Component {
+class WrappedThemeProvider extends React.Component {
   render(){
-    console.log(this.props.theme)
     return (
       <ThemeProvider uiTheme={this.props.theme}>
         {this.props.children}
@@ -25,7 +21,7 @@ class WrrapedThemeProvider extends React.Component {
   }
 }
 
-ConnectedThemeProvider = connect(mapStateToProps)(WrrapedThemeProvider)
+ConnectedThemeProvider = connect(mapStateToProps)(WrappedThemeProvider)
 
 
 export default class App extends React.Component {
@@ -33,7 +29,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <ConnectedThemeProvider>
-            <Router />
+          <Router />
         </ConnectedThemeProvider>
       </Provider>
     )

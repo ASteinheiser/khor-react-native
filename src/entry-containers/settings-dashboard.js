@@ -1,7 +1,7 @@
 import React                      from 'react'
 import { ScrollView, View, Text } from 'react-native'
 import { connect }                from 'react-redux'
-import { bindActionCreators }     from 'redux';
+import { bindActionCreators }     from 'redux'
 import { Icon, Toolbar }          from 'react-native-material-ui'
 import styled                     from 'styled-components/native'
 
@@ -26,10 +26,13 @@ class SettingsDashboard extends React.Component {
         <Container>
           <Margin>
             <Button
-              accent
-              icon="subdirectory-arrow-left"
+              primary
+              icon="palette"
               text="Set Theme"
-              onPress={() => {this.props.setTheme('greenTheme')}} />
+              onPress={() => {
+                this.props.setTheme('greenTheme')
+                this.props.navigation.navigate('SettingsDashboard')
+              }} />
           </Margin>
           <Margin>
             <Button
@@ -62,5 +65,5 @@ const Container = styled.ScrollView`
 `
 
 const Margin = styled.View`
-  margin: 25px 20px;
+  margin: 20px 20px 0 20px;
 `
