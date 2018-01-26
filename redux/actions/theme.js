@@ -1,8 +1,7 @@
 import * as themes from "../../themes"
 
-
 export const SET_THEME = "SET_THEME"
-
+export const GET_THEME = "GET_THEME"
 
 export function setTheme(name){
     if (themes[name]) {
@@ -12,4 +11,11 @@ export function setTheme(name){
         }
     }
     return {}
+}
+
+export function getTheme(){
+    return {
+        type: GET_THEME,
+        payload: themes.defaultTheme
+    }
 }
