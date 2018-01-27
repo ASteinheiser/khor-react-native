@@ -12,7 +12,6 @@ import logo from '../../assets/icons/khor_icon_trans.png'
 
 class SideMenu extends React.Component {
   render () {
-    console.log(this.props)
     return (
       <ScrollView>
         <Margin>
