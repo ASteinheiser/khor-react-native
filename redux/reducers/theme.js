@@ -6,8 +6,6 @@ export default function(state = themes['defaultTheme'], { type, payload }){
     switch(type) {
         case SET_THEME:
             return payload
-        case GET_THEME:
-            return payload
         default:
             return state
     }

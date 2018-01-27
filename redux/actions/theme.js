@@ -13,9 +13,3 @@ export function setTheme(name){
     return {}
 }
 
-export function getTheme(){
-    return {
-        type: GET_THEME,
-        payload: themes.defaultTheme
-    }
-}

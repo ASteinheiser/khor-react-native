@@ -8,14 +8,13 @@ import { fade }                                    from 'material-ui/utils/color
 import styled                                      from 'styled-components/native'
 import { pink700, blueGrey700, white }             from '../../colors.js'
 
-import { getTheme } from '../../redux/actions/theme'
+// import { getTheme } from '../../redux/actions/theme'
 
 import logo from '../../assets/icons/khor_icon_trans.png'
 
 class SideMenu extends React.Component {
   render () {
     console.log(this.props)
-    console.log(this.props.getTheme())
     return (
       <ScrollView>
         <Margin>
@@ -49,7 +48,7 @@ SideMenu.propTypes = {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getTheme
+    
   }, dispatch);
 }
 
