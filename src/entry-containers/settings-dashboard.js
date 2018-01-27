@@ -31,7 +31,7 @@ class SettingsDashboard extends React.Component {
               text="Set Theme"
               onPress={() => {
                 this.props.setTheme('greenTheme')
-                // this.props.navigation.navigate('SettingsDashboard')
+                this.props.navigation.navigate('SettingsDashboard')
               }} />
           </Margin>
           <Margin>
