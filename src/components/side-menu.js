@@ -8,8 +8,6 @@ import { fade }                                    from 'material-ui/utils/color
 import styled                                      from 'styled-components/native'
 import { pink700, blueGrey700, white }             from '../../colors.js'
 
-// import { getTheme } from '../../redux/actions/theme'
-
 import logo from '../../assets/icons/khor_icon_trans.png'
 
 class SideMenu extends React.Component {
