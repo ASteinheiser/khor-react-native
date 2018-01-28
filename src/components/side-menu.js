@@ -1,21 +1,17 @@
-import React                                       from 'react'
-import { ScrollView, Text, View, Image, Platform } from 'react-native'
-import { connect }                                 from 'react-redux'
-import { bindActionCreators }                      from 'redux'
-import styled                                      from 'styled-components/native'
+import React       from 'react'
+import styled      from 'styled-components/native'
+import { connect } from 'react-redux'
+import {
+  ScrollView,
+  Text,
+  View,
+  Image,
+  Platform } from 'react-native'
 
 import SideMenuItem from './side-menu-item.js'
 import logo         from '../../assets/icons/khor_icon_trans.png'
 
-export default class SideMenu extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      primaryColor: '',
-      secondaryColor: ''
-    }
-  }
-
+class SideMenu extends React.Component {
   render () {
     return (
       <ScrollView>
@@ -34,33 +30,45 @@ export default class SideMenu extends React.Component {
           </FlexRow>
         </Margin>
         <SideMenuItem
+          theme={this.props.theme}
           active={this.props.activeItemKey === 'Dashboard'}
-          text='Dashboard'
-          route='Dashboard' />
+          onClick={() => this.props.navigation.navigate('Dashboard')}
+          text='Dashboard' />
         <SideMenuItem
+          theme={this.props.theme}
           active={this.props.activeItemKey === 'Fitness'}
-          text='Fitness'
-          route='Fitness' />
+          onClick={() => this.props.navigation.navigate('Fitness')}
+          text='Fitness' />
         <SideMenuItem
+          theme={this.props.theme}
           active={this.props.activeItemKey === 'Pantry'}
-          text='Pantry'
-          route='Pantry' />
+          onClick={() => this.props.navigation.navigate('Pantry')}
+          text='Pantry' />
         <SideMenuItem
+          theme={this.props.theme}
           active={this.props.activeItemKey === 'Recipes'}
-          text='Recipes'
-          route='Recipes' />
+          onClick={() => this.props.navigation.navigate('Recipes')}
+          text='Recipes' />
         <SideMenuItem
+          theme={this.props.theme}
           active={this.props.activeItemKey === 'Shopping List'}
-          text='Shopping List'
-          route='Shopping List' />
+          onClick={() => this.props.navigation.navigate('Shopping List')}
+          text='Shopping List' />
         <SideMenuItem
+          theme={this.props.theme}
           active={this.props.activeItemKey === 'Settings'}
-          text='Settings'
-          route='Settings' />
+          onClick={() => this.props.navigation.navigate('Settings')}
+          text='Settings' />
       </ScrollView>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(SideMenu)
 
 const HeaderText = styled.Text`
   font-size: 18px;

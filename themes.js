@@ -53,3 +53,9 @@ export const greenTheme = deepAssign({}, cloneDeep(defaultTheme) ,{
     primaryColor: green900,
   }
 })
+
+export const pinkTheme = deepAssign({}, cloneDeep(defaultTheme) ,{
+  palette: {
+    primaryColor: pink700,
+  }
+})

@@ -1,42 +1,27 @@
-import React                                       from 'react'
-import { NavigationActions, DrawerItems }          from 'react-navigation'
-import { ScrollView, Text, View, Image, Platform } from 'react-native'
-import { connect }                                 from 'react-redux'
-import { bindActionCreators }                      from 'redux'
-import { fade }                                    from 'material-ui/utils/colorManipulator'
-import styled                                      from 'styled-components/native'
+import React                 from 'react'
+import { Text }              from 'react-native'
+import styled                from 'styled-components/native'
 
-import { getTheme } from '../../redux/actions/theme'
-import { white }    from '../../colors.js'
-
-class SideMenuItem extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      primaryColor: '',
-      secondaryColor: ''
-    }
-  }
-
+export default class SideMenuItem extends React.Component {
   render() {
     return (
-      <LinkText>
+      <LinkText
+        theme={this.props.theme}
+        active={this.props.active}
+        onPress={this.props.onClick}>
+
         {this.props.text}
+
       </LinkText>
     )
   }
 }
 
 const LinkText = styled.Text`
-  font-size: 16;
-  font-family: 'Roboto';
-  color: ${props => props.active ? white : fade(white, 0.8)};
+  font-size: 18;
+  font-family: ${props => props.theme.fontFamily};
+  color: ${props => props.active ? 'white' : props.theme.palette.primaryTextColor};
+  background-color: ${props => props.active ? props.theme.palette.primaryColor : 'rgba(0,0,0,0.0)'};
+
+  padding: 15px 0 15px 20px;
 `
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    getTheme
-  }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(SideMenuItem)

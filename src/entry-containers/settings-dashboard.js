@@ -1,6 +1,7 @@
 import React                      from 'react'
 import { ScrollView, View, Text } from 'react-native'
 import { connect }                from 'react-redux'
+import { NavigationActions }      from 'react-navigation'
 import { bindActionCreators }     from 'redux'
 import { Icon, Toolbar }          from 'react-native-material-ui'
 import styled                     from 'styled-components/native'
@@ -28,10 +29,26 @@ class SettingsDashboard extends React.Component {
             <Button
               primary
               icon="palette"
-              text="Set Theme"
+              text="Pink Theme"
+              onPress={() => {
+                this.props.setTheme('pinkTheme')
+                this.props.navigation.dispatch(NavigationActions.reset({
+                  index: 0,
+                  actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
+                }))
+              }} />
+          </Margin>
+          <Margin>
+            <Button
+              primary
+              icon="palette"
+              text="Green Theme"
               onPress={() => {
                 this.props.setTheme('greenTheme')
-                this.props.navigation.navigate('SettingsDashboard')
+                this.props.navigation.dispatch(NavigationActions.reset({
+                  index: 0,
+                  actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
+                }))
               }} />
           </Margin>
           <Margin>
