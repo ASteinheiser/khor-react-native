@@ -1,34 +1,17 @@
-import React       from 'react'
-import styled      from 'styled-components/native'
-import { connect } from 'react-redux'
-import {
-  ScrollView,
-  Text,
-  View,
-  Image,
-  Platform } from 'react-native'
+import React          from 'react'
+import { connect }    from 'react-redux'
+import { ScrollView } from 'react-native'
 
-import SideMenuItem from './side-menu-item.js'
-import logo         from '../../assets/icons/khor_icon_trans.png'
+import SideMenuHeader from './side-menu-header.js'
+import SideMenuItem   from './side-menu-item.js'
 
 class SideMenu extends React.Component {
   render () {
     return (
       <ScrollView>
-        <Margin>
-          <FlexRow>
-            <MarginRight>
-              <Logo source={logo}/>
-            </MarginRight>
-            <FlexCenter>
-              <BoxBorder>
-                <HeaderText>
-                  KHOR
-                </HeaderText>
-              </BoxBorder>
-            </FlexCenter>
-          </FlexRow>
-        </Margin>
+
+        <SideMenuHeader theme={this.props.theme} />
+
         <SideMenuItem
           theme={this.props.theme}
           active={this.props.activeItemKey === 'Dashboard'}
@@ -69,42 +52,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(SideMenu)
-
-const HeaderText = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
-`
-
-let Margin = styled.View`
-  margin: 55px 0 30px 20px;
-`
-
-if (Platform.OS === 'ios') {
-  Margin = styled.View`
-    margin: 45px 0 30px 20px;
-  `
-}
-
-const MarginRight = styled.View`
-  margin-right: 20px;
-`
-
-const FlexRow = styled.View`
-  flex: 1;
-  flex-direction: row;
-`
-
-const Logo = styled.Image`
-  width: 80px;
-  height: 80px;
-`
-
-const FlexCenter = styled.View`
-  flex-direction: column;
-  justify-content: space-around;
-`
-
-const BoxBorder = styled.View`
-  padding: 3px 7px;
-  border-width: 2px;
-`
