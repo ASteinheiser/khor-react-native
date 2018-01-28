@@ -18,7 +18,8 @@ export default class SideMenuItem extends React.Component {
 }
 
 const LinkText = styled.Text`
-  font-size: 18;
+  font-size: 16;
+  font-weight: bold;
   font-family: ${props => props.theme.fontFamily};
   color: ${props => props.active ? 'white' : props.theme.palette.primaryTextColor};
   background-color: ${props => props.active ? props.theme.palette.primaryColor : 'rgba(0,0,0,0.0)'};
