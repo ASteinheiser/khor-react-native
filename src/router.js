@@ -34,12 +34,6 @@ const Router = DrawerNavigator(
     initialRouteName: 'Dashboard',
     drawerBackgroundColor: '#303030',
     contentComponent: props => <SideMenu {...props} />,
-    contentOptions: {
-      labelStyle: {
-        fontFamily: 'Roboto',
-        fontSize: 16,
-      }
-    }
   }
 )
 
