@@ -1,10 +1,11 @@
 import React                 from 'react'
 import { Provider, connect } from 'react-redux'
+import { PersistGate }       from 'redux-persist/lib/integration/react'
 import { AppRegistry }       from 'react-native'
 import { ThemeProvider }     from 'react-native-material-ui'
 
 import Router    from './src/router.js'
-import { store } from './redux/config'
+import { store, persistor } from './redux/config'
 
 function mapStateToProps(state) {
   return {
@@ -24,13 +25,15 @@ class WrappedThemeProvider extends React.Component {
 ConnectedThemeProvider = connect(mapStateToProps)(WrappedThemeProvider)
 
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <ConnectedThemeProvider>
-          <Router />
-        </ConnectedThemeProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <ConnectedThemeProvider>
+            <Router />
+          </ConnectedThemeProvider>
+        </PersistGate>
       </Provider>
     )
   }

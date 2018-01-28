@@ -7,7 +7,7 @@ import styled                                      from 'styled-components/nativ
 import SideMenuItem from './side-menu-item.js'
 import logo         from '../../assets/icons/khor_icon_trans.png'
 
-class SideMenu extends React.Component {
+export default class SideMenu extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,7 +17,6 @@ class SideMenu extends React.Component {
   }
 
   render () {
-    console.log(this.props.getTheme())
     return (
       <ScrollView>
         <Margin>
