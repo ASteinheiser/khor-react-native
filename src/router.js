@@ -1,7 +1,7 @@
 import React               from 'react'
 import { DrawerNavigator } from 'react-navigation'
 
-import Dashboard    from './routers/dashboard.js'
+import Dashboard    from './entry-containers/dashboard.js'
 import Pantry       from './routers/pantry.js'
 import Recipes      from './routers/recipes.js'
 import WatchPage    from './routers/watch-page.js'
@@ -11,7 +11,7 @@ import SideMenu     from './components/side-menu.js'
 
 const Router = DrawerNavigator(
   {
-    'Dashboard': {
+    Dashboard: {
       screen: Dashboard
     },
     'Fitness': {
@@ -28,7 +28,10 @@ const Router = DrawerNavigator(
     },
     Settings: {
       screen: Settings
-    }
+    },
+    // Login: {
+    //   screen: Login
+    // }
   },
   {
     initialRouteName: 'Dashboard',
