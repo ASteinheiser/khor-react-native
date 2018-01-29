@@ -1,11 +1,12 @@
-import React                              from 'react'
-import { ScrollView, View, Text }         from 'react-native'
-import { Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
-import { NavigationActions }              from 'react-navigation'
-import styled                             from 'styled-components/native'
-import { connect }    from 'react-redux'
+import React                      from 'react'
+import { ScrollView, View, Text } from 'react-native'
+import { Icon, Card, Toolbar }    from 'react-native-material-ui'
+import { NavigationActions }      from 'react-navigation'
+import styled                     from 'styled-components/native'
+import { connect }                from 'react-redux'
 
-import Button from '../components/button.js'
+import Button    from '../components/button.js'
+import Subheader from '../components/subheader.js'
 
 const BASE_URL = 'https://bljp0y84gh.execute-api.us-west-2.amazonaws.com/Hack'
 

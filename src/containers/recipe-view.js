@@ -1,8 +1,10 @@
-import React                              from 'react'
-import { ScrollView, View, Text }         from 'react-native'
-import { Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
-import { connect }                        from 'react-redux'
-import styled                             from 'styled-components/native'
+import React                      from 'react'
+import { ScrollView, View, Text } from 'react-native'
+import { Icon, Card, Toolbar }    from 'react-native-material-ui'
+import { connect }                from 'react-redux'
+import styled                     from 'styled-components/native'
+
+import Subheader from '../components/subheader.js'
 
 class RecipeView extends React.Component {
   constructor(props) {
