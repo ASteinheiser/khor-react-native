@@ -46,7 +46,7 @@ class ShoppingListView extends React.Component {
                   return (
                     <ListItem
                       key={this.state.shoppingList[item].id}
-                      leftElement={this.state.shoppingList[item].active ? <Icon name="check-box-outline-blank" /> : <Icon color='#455a64' name="check-box" />}
+                      leftElement={this.state.shoppingList[item].active ? <Icon name="check-box-outline-blank" /> : <Icon color={this.props.theme.palette.accentColor} name="check-box" />}
                       onLeftElementPress={() => {
                         const newState = _.cloneDeep(this.state)
                         newState.shoppingList[item].active = !newState.shoppingList[item].active

@@ -16,6 +16,7 @@ class Input extends React.Component {
         numberOfLines={1}
         autoCorrect={false}
         returnKeyType={'done'}
+        underlineColorAndroid='rgba(0,0,0,0.0)'
         onFocus={() => this.setState({ borderColor: this.props.theme.palette.primaryColor })}
         onBlur={() => this.setState({ borderColor: this.props.theme.palette.disabledColor })}
         selectionColor={this.props.theme.palette.secondaryTextColor}
@@ -29,6 +30,9 @@ class Input extends React.Component {
           marginRight: 20,
           marginTop: 30,
           paddingLeft: 5,
+          paddingRight: 0,
+          paddingBottom: 0,
+          paddingTop: 0,
           fontSize: 18,
         }}
         {...this.props}
