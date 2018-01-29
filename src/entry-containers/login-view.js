@@ -7,6 +7,7 @@ import styled                from 'styled-components/native'
 
 import Button  from '../components/button.js'
 import Divider from '../components/divider.js'
+import Input   from '../components/input.js'
 
 class Login extends React.Component {
   render() {
@@ -15,13 +16,29 @@ class Login extends React.Component {
         <Toolbar centerElement='Login' />
 
         <Container color={this.props.theme.palette.canvasColor}>
-          <Margin>
+
+          <Input
+            keyboardType={'email-address'}
+            // onChange
+            // onSubmitEditing
+            placeholder={'Email Address'}
+            // value
+            />
+          <Input
+            secureTextEntry={true}
+            // onChange
+            // onSubmitEditing
+            placeholder={'Password'}
+            // value
+            />
+
+          <TopMargin>
             <Button
               primary
               icon="subdirectory-arrow-right"
               text="Login"
               onPress={()=> this.props.navigation.navigate('Dashboard')} />
-          </Margin>
+          </TopMargin>
 
           <Divider />
 
@@ -72,4 +89,8 @@ const Container = styled.ScrollView`
 
 const Margin = styled.View`
   margin: 20px 20px 0 20px;
+`
+
+const TopMargin = styled.View`
+  margin: 30px 20px 0 20px;
 `

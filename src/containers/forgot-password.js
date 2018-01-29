@@ -7,6 +7,7 @@ import styled                from 'styled-components/native'
 
 import Button  from '../components/button.js'
 import Divider from '../components/divider.js'
+import Input   from '../components/input.js'
 
 class ForgotPassword extends React.Component {
   render() {
@@ -15,7 +16,16 @@ class ForgotPassword extends React.Component {
         <Toolbar centerElement='Retrieve Password' />
 
         <Container color={this.props.theme.palette.canvasColor}>
-          <Margin>
+
+          <Input
+            keyboardType={'email-address'}
+            // onChange
+            // onSubmitEditing
+            placeholder={'Email Address'}
+            // value
+            />
+
+          <TopMargin>
             <Button
               primary
               icon="cached"
@@ -26,7 +36,7 @@ class ForgotPassword extends React.Component {
                   actions: [ NavigationActions.navigate({ routeName: 'LoginView'}) ]
                 }))
               }} />
-          </Margin>
+          </TopMargin>
 
           <Divider />
 
@@ -65,4 +75,8 @@ const Container = styled.ScrollView`
 
 const Margin = styled.View`
   margin: 20px 20px 0 20px;
+`
+
+const TopMargin = styled.View`
+  margin: 30px 20px 0 20px;
 `
