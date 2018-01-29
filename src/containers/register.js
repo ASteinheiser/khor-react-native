@@ -6,41 +6,29 @@ import styled                from 'styled-components/native'
 
 import Button from '../components/button.js'
 
-class Login extends React.Component {
+class Register extends React.Component {
   render() {
     return (
       <Flex>
-        <Toolbar centerElement='Login' />
+        <Toolbar centerElement='Register' />
 
         <Container>
           <Margin>
             <Button
               primary
-              icon="subdirectory-arrow-right"
-              text="Login"
-              onPress={()=> this.props.navigation.navigate('Dashboard')} />
+              icon="check"
+              text="Register"
+              onPress={() => this.props.navigation.navigate('Dashboard') } />
           </Margin>
           <Margin>
             <Button
               primary
-              icon="assignment"
-              text="Register"
-              onPress={()=> {
+              icon="close"
+              text="Cancel"
+              onPress={() => {
                 this.props.navigation.dispatch(NavigationActions.reset({
                   index: 0,
-                  actions: [ NavigationActions.navigate({ routeName: 'Register'}) ]
-                }))
-              }} />
-          </Margin>
-          <Margin>
-            <Button
-              accent
-              icon="help-outline"
-              text="Forgot Password"
-              onPress={()=> {
-                this.props.navigation.dispatch(NavigationActions.reset({
-                  index: 0,
-                  actions: [ NavigationActions.navigate({ routeName: 'ForgotPassword'}) ]
+                  actions: [ NavigationActions.navigate({ routeName: 'LoginView'}) ]
                 }))
               }} />
           </Margin>
@@ -49,7 +37,8 @@ class Login extends React.Component {
     )
   }
 }
-export default Login
+
+export default Register
 
 const Flex = styled.View`
   flex: 1;
