@@ -11,11 +11,6 @@ import { setTheme } from '../../redux/actions/theme'
 import Button from '../components/button.js'
 
 class SettingsDashboard extends React.Component {
-
-  logout = () => {
-    // this.props.navigation.navigate('Login')
-  }
-
   render() {
     return (
       <Flex>
@@ -56,7 +51,7 @@ class SettingsDashboard extends React.Component {
               accent
               icon="subdirectory-arrow-left"
               text="Logout"
-              onPress={this.logout} />
+              onPress={()=> this.props.navigation.navigate('Login')} />
           </Margin>
         </Container>
       </Flex>

@@ -11,6 +11,7 @@ export default class StyledButton extends React.Component {
             height: 50
           },
           text: {
+            fontFamily:'Roboto',
             color:'rgba(255, 255, 255, 0.8)',
             fontWeight: 'bold',
             fontSize: 16
