@@ -8,7 +8,8 @@ import styled                     from 'styled-components/native'
 
 import { setTheme } from '../../redux/actions/theme'
 
-import Button from '../components/button.js'
+import Button  from '../components/button.js'
+import Divider from '../components/divider.js'
 
 class SettingsDashboard extends React.Component {
   render() {
@@ -46,6 +47,9 @@ class SettingsDashboard extends React.Component {
                 }))
               }} />
           </Margin>
+
+          <Divider />
+
           <Margin>
             <Button
               accent

@@ -4,7 +4,8 @@ import { NavigationActions } from 'react-navigation'
 import { Toolbar }           from 'react-native-material-ui'
 import styled                from 'styled-components/native'
 
-import Button from '../components/button.js'
+import Button  from '../components/button.js'
+import Divider from '../components/divider.js'
 
 class Register extends React.Component {
   render() {
@@ -20,9 +21,12 @@ class Register extends React.Component {
               text="Register"
               onPress={() => this.props.navigation.navigate('Dashboard') } />
           </Margin>
+
+          <Divider />
+
           <Margin>
             <Button
-              primary
+              accent
               icon="close"
               text="Cancel"
               onPress={() => {

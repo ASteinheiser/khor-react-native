@@ -4,7 +4,8 @@ import { NavigationActions } from 'react-navigation'
 import { Toolbar }           from 'react-native-material-ui'
 import styled                from 'styled-components/native'
 
-import Button from '../components/button.js'
+import Button  from '../components/button.js'
+import Divider from '../components/divider.js'
 
 class ForgotPassword extends React.Component {
   render() {
@@ -25,9 +26,12 @@ class ForgotPassword extends React.Component {
                 }))
               }} />
           </Margin>
+
+          <Divider />
+
           <Margin>
             <Button
-              primary
+              accent
               icon="close"
               text="Cancel"
               onPress={() => {
