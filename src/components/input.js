@@ -31,7 +31,7 @@ class Input extends React.Component {
           marginTop: 30,
           paddingLeft: 5,
           paddingRight: 0,
-          paddingBottom: 0,
+          paddingBottom: 5,
           paddingTop: 0,
           fontSize: 18,
         }}
