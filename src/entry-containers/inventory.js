@@ -1,6 +1,7 @@
 import React                      from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { Icon, Toolbar }          from 'react-native-material-ui'
+import { connect }                from 'react-redux'
 import styled                     from 'styled-components/native'
 
 import Button   from '../components/button.js'
@@ -55,7 +56,7 @@ class Inventory extends React.Component {
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
-        <Container>
+        <Container color={this.props.theme.palette.canvasColor}>
           <MarginTop>
             <Button
               primary
@@ -96,14 +97,19 @@ class Inventory extends React.Component {
     )
   }
 }
-export default Inventory
+
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(Inventory)
 
 const Flex = styled.View`
   flex: 1;
 `
 
 const Container = styled.ScrollView`
-  background-color: #303030;
+  background-color: ${props => props.color};
 `
 
 const MarginTop = styled.View`

@@ -25,7 +25,7 @@ export const defaultTheme = {
     primaryColor: pink700,
     accentColor: blueGrey700,
     primaryTextColor: fade(white, 0.8),
-    secondaryTextColor: fade(white, 0.8),
+    secondaryTextColor: white,
     canvasColor: '#303030',
     borderColor: fade(white, 0.3),
     disabledColor: fade(white, 0.3),

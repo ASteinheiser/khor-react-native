@@ -2,6 +2,7 @@ import React                 from 'react'
 import { ScrollView, View }  from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import { Toolbar }           from 'react-native-material-ui'
+import { connect }           from 'react-redux'
 import styled                from 'styled-components/native'
 
 import Button  from '../components/button.js'
@@ -13,7 +14,7 @@ class Login extends React.Component {
       <Flex>
         <Toolbar centerElement='Login' />
 
-        <Container>
+        <Container color={this.props.theme.palette.canvasColor}>
           <Margin>
             <Button
               primary
@@ -53,14 +54,19 @@ class Login extends React.Component {
     )
   }
 }
-export default Login
+
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(Login)
 
 const Flex = styled.View`
   flex: 1;
 `
 
 const Container = styled.ScrollView`
-  background-color: #303030;
+  background-color: ${props => props.color};
   flex: 1;
 `
 

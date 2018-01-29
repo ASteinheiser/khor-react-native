@@ -1,7 +1,8 @@
-import React      from 'react'
-import { Button } from 'react-native-material-ui'
+import React       from 'react'
+import { Button }  from 'react-native-material-ui'
+import { connect } from 'react-redux'
 
-export default class StyledButton extends React.Component {
+class StyledButton extends React.Component {
   render() {
     return (
       <Button
@@ -11,8 +12,8 @@ export default class StyledButton extends React.Component {
             height: 50
           },
           text: {
-            fontFamily:'Roboto',
-            color:'rgba(255, 255, 255, 0.8)',
+            fontFamily: this.props.theme.fontFamily,
+            color: this.props.theme.palette.secondaryTextColor,
             fontWeight: 'bold',
             fontSize: 16
           }
@@ -22,3 +23,9 @@ export default class StyledButton extends React.Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(StyledButton)

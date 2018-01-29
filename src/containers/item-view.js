@@ -2,6 +2,7 @@ import React                              from 'react'
 import { ScrollView, View, Text }         from 'react-native'
 import { Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
 import { NavigationActions }              from 'react-navigation'
+import { connect }                        from 'react-redux'
 import styled                             from 'styled-components/native'
 
 import Button from '../components/button.js'
@@ -49,7 +50,7 @@ class ItemView extends React.Component {
           leftElement='arrow-back'
           onLeftElementPress={()=>{this.props.navigation.goBack()}}
         />
-        <Container>
+        <Container color={this.props.theme.palette.canvasColor}>
           <Card>
             {
               this.state.item ?
@@ -57,7 +58,7 @@ class ItemView extends React.Component {
                 <MarginLeft>
                   <Subheader text='Nutritional Information:' />
                   <Margin>
-                    <StyledText>
+                    <StyledText color={this.props.theme.palette.secondaryTextColor}>
                       { 'Calories: ' + this.state.item.calories }
                     </StyledText>
                     {/* {
@@ -68,13 +69,13 @@ class ItemView extends React.Component {
                   </Margin>
                   <Subheader text='Allergy Information:' />
                   <Margin>
-                    <StyledText>
+                    <StyledText color={this.props.theme.palette.secondaryTextColor}>
                       { this.state.item.cautions.map((caution) => caution + "   " ) }
                     </StyledText> */}
                   </Margin>
                   {/* <Subheader text='Diet Restrictions:' />
                   <Margin>
-                    <StyledText>
+                    <StyledText color={this.props.theme.palette.secondaryTextColor}>
                       {
                         this.state.item.healthLabels.map((label) => {
                           if(label === 'VEGAN') {
@@ -92,7 +93,7 @@ class ItemView extends React.Component {
                   </Margin>
                   <Subheader text='Ingredients:' />
                   <Margin>
-                    <StyledText>
+                    <StyledText color={this.props.theme.palette.secondaryTextColor}>
                       { this.state.item.ingredients[0].parsed[0].foodContentsLabel }
                     </StyledText>
                   </Margin> */}
@@ -119,14 +120,18 @@ class ItemView extends React.Component {
   }
 }
 
-export default ItemView
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(ItemView)
 
 const Flex = styled.View`
   flex: 1;
 `
 
 const Container = styled.ScrollView`
-  background: #303030;
+  background: ${props => props.color};
   flex: 1;
 `
 
@@ -151,6 +156,6 @@ const TopMargin = styled.View`
 `
 
 const StyledText = styled.Text`
-  color: rgb(255, 255, 255);
+  color: ${props => props.color};
   font-size: 18px;
 `

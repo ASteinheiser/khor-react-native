@@ -20,7 +20,7 @@ class SettingsDashboard extends React.Component {
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
-        <Container>
+        <Container color={this.props.theme.palette.canvasColor}>
           <Margin>
             <Button
               primary
@@ -63,20 +63,24 @@ class SettingsDashboard extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     setTheme
   }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(SettingsDashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsDashboard)
 
 const Flex = styled.View`
   flex: 1;
 `
 
 const Container = styled.ScrollView`
-  background-color: #303030;
+  background-color: ${props => props.color};
   flex: 1;
 `
 

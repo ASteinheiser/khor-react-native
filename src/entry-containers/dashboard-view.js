@@ -2,6 +2,7 @@ import React                      from 'react'
 import { ScrollView, View, Text } from 'react-native'
 import { Icon, Toolbar }          from 'react-native-material-ui'
 import styled                     from 'styled-components/native'
+import { connect }                from 'react-redux'
 import SplashScreen               from 'react-native-splash-screen'
 
 class Dashboard extends React.Component {
@@ -17,7 +18,7 @@ class Dashboard extends React.Component {
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
-        <Container>
+        <Container color={this.props.theme.palette.canvasColor}>
           <Margin>
             <FlexRow>
               <MarginRight>
@@ -33,14 +34,19 @@ class Dashboard extends React.Component {
     )
   }
 }
-export default Dashboard
+
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(Dashboard)
 
 const Flex = styled.View`
   flex: 1;
 `
 
 const Container = styled.ScrollView`
-  background-color: #303030;
+  background-color: ${props => props.color};
   flex: 1;
 `
 

@@ -1,6 +1,7 @@
 import React                       from 'react'
 import { ScrollView, View, Text }  from 'react-native'
 import { Icon, Toolbar }           from 'react-native-material-ui'
+import { connect }                 from 'react-redux'
 import styled                      from 'styled-components/native'
 
 class FitbitDashboard extends React.Component {
@@ -12,7 +13,7 @@ class FitbitDashboard extends React.Component {
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
-        <Container>
+        <Container color={this.props.theme.palette.canvasColor}>
           <Margin>
             <FlexRow>
               <MarginRight>
@@ -28,14 +29,19 @@ class FitbitDashboard extends React.Component {
     )
   }
 }
-export default FitbitDashboard
+
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(FitbitDashboard)
 
 const Flex = styled.View`
   flex: 1;
 `
 
 const Container = styled.ScrollView`
-  background-color: #303030;
+  background-color: ${props => props.color};
   flex: 1;
 `
 

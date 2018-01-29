@@ -1,6 +1,7 @@
 import React          from 'react'
 import { connect }    from 'react-redux'
 import { ScrollView } from 'react-native'
+import styled         from 'styled-components/native'
 
 import SideMenuHeader from './side-menu-header.js'
 import SideMenuItem   from './side-menu-item.js'
@@ -8,7 +9,7 @@ import SideMenuItem   from './side-menu-item.js'
 class SideMenu extends React.Component {
   render () {
     return (
-      <ScrollView>
+      <Container color={this.props.theme.palette.canvasColor}>
 
         <SideMenuHeader theme={this.props.theme} />
 
@@ -42,7 +43,7 @@ class SideMenu extends React.Component {
           active={this.props.activeItemKey === 'Settings'}
           onClick={() => this.props.navigation.navigate('Settings')}
           text='Settings' />
-      </ScrollView>
+      </Container>
     )
   }
 }
@@ -52,3 +53,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(SideMenu)
+
+const Container = styled.ScrollView`
+  background-color: ${props => props.color}
+`

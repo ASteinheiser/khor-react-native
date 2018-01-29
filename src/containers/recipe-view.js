@@ -1,7 +1,8 @@
-import React                               from 'react'
-import { ScrollView, View, Text }          from 'react-native'
-import { Icon, Card, Subheader, Toolbar }  from 'react-native-material-ui'
-import styled                              from 'styled-components/native'
+import React                              from 'react'
+import { ScrollView, View, Text }         from 'react-native'
+import { Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
+import { connect }                        from 'react-redux'
+import styled                             from 'styled-components/native'
 
 class RecipeView extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class RecipeView extends React.Component {
           leftElement='arrow-back'
           onLeftElementPress={()=>{this.props.navigation.goBack()}}
         />
-        <ScrollBackground>
+        <ScrollBackground color={this.props.theme.palette.canvasColor}>
           <Card>
             {
               this.state.recipe ?
@@ -31,19 +32,19 @@ class RecipeView extends React.Component {
                 <MarginLeft>
                   <Subheader text='Cook Time:' />
                   <Margin>
-                    <StyledText>
+                    <StyledText color={this.props.theme.palette.secondaryTextColor}>
                       { this.state.recipe.cookTime }
                     </StyledText>
                   </Margin>
                   <Subheader text='Ingredients:' />
                   <Margin>
-                    <StyledText>
+                    <StyledText color={this.props.theme.palette.secondaryTextColor}>
                       { this.state.recipe.ingredients }
                     </StyledText>
                   </Margin>
                   <Subheader text='Instructions:' />
                   <Margin>
-                    <StyledText>
+                    <StyledText color={this.props.theme.palette.secondaryTextColor}>
                       { this.state.recipe.instructions }
                     </StyledText>
                   </Margin>
@@ -60,14 +61,19 @@ class RecipeView extends React.Component {
     )
   }
 }
-export default RecipeView
+
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(RecipeView)
 
 const Flex = styled.View`
   flex: 1;
 `
 
 const ScrollBackground = styled.ScrollView`
-  background: #303030;
+  background: ${props => props.color};
 `
 
 const Margin = styled.View`
@@ -87,6 +93,6 @@ const MarginLeft = styled.View`
 `
 
 const StyledText = styled.Text`
-  color: rgb(255, 255, 255);
+  color: ${props => props.color};
   font-size: 18px;
 `

@@ -3,6 +3,7 @@ import { ScrollView, View, Text }         from 'react-native'
 import { Icon, Card, Subheader, Toolbar } from 'react-native-material-ui'
 import { NavigationActions }              from 'react-navigation'
 import styled                             from 'styled-components/native'
+import { connect }    from 'react-redux'
 
 import Button from '../components/button.js'
 
@@ -72,7 +73,7 @@ class AddItem extends React.Component {
           centerElement='Add Item'
           leftElement='local-pizza'
         />
-        <Container>
+        <Container color={this.props.theme.palette.canvasColor}>
           <Card>
             {
               this.state.newItem && !this.state.error ?
@@ -80,7 +81,7 @@ class AddItem extends React.Component {
                 <HeaderMargin>
                   <Subheader text={'Item Found:'} />
                   <Margin>
-                    <StyledText>
+                    <StyledText color={this.props.theme.palette.secondaryTextColor}>
                       {this.state.newItem.name}
                     </StyledText>
                   </Margin>
@@ -90,7 +91,7 @@ class AddItem extends React.Component {
                   <MarginLeft>
                     <Subheader text='Allergy Information:' />
                     <Margin>
-                      <StyledText>
+                      <StyledText color={this.props.theme.palette.secondaryTextColor}>
                         { this.state.newItem.cautions.map((caution) => caution + "   " ) }
                       </StyledText>
                     </Margin>
@@ -103,7 +104,7 @@ class AddItem extends React.Component {
                   <MarginLeft>
                     <Subheader text='Diet Restrictions:' />
                     <Margin>
-                      <StyledText>
+                      <StyledText color={this.props.theme.palette.secondaryTextColor}>
                         {
                           this.state.newItem.healthLabels.map((label) => {
                             if(label === 'VEGAN') {
@@ -164,10 +165,15 @@ class AddItem extends React.Component {
     )
   }
 }
-export default AddItem
+
+function mapStateToProps(state) {
+  return { theme: state.theme }
+}
+
+export default connect(mapStateToProps)(AddItem)
 
 const Container = styled.ScrollView`
-  background-color: #303030;
+  background-color: ${props => props.color};
   flex: 1;
 `
 
@@ -192,6 +198,6 @@ const TopMargin = styled.View`
 `
 
 const StyledText = styled.Text`
-  color: rgb(255, 255, 255);
+  color: ${props => props.color};
   font-size: 18px;
 `
