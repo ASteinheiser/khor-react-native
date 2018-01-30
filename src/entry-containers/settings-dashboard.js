@@ -3,15 +3,23 @@ import { ScrollView, View, Text } from 'react-native'
 import { connect }                from 'react-redux'
 import { NavigationActions }      from 'react-navigation'
 import { bindActionCreators }     from 'redux'
-import { Icon, Toolbar }          from 'react-native-material-ui'
+import { Toolbar }                from 'react-native-material-ui'
 import styled                     from 'styled-components/native'
 
 import { setTheme } from '../../redux/actions/theme'
 
 import Button  from '../components/button.js'
 import Divider from '../components/divider.js'
+import Dialog  from '../components/dialog.js'
 
 class SettingsDashboard extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      themePopup: false
+    }
+  }
+
   render() {
     return (
       <Flex>
@@ -21,30 +29,46 @@ class SettingsDashboard extends React.Component {
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
         <Container color={this.props.theme.palette.canvasColor}>
+          {
+            this.state.themePopup ?
+            <Dialog header='Theme Select' body='Pick your favorite color.'>
+              <BottomMargin>
+                <Button
+                  primary
+                  icon="palette"
+                  text="Green Theme"
+                  onPress={() => {
+                    this.props.setTheme('greenTheme')
+                    this.props.navigation.dispatch(NavigationActions.reset({
+                      index: 0,
+                      actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
+                    }))
+                  }} />
+              </BottomMargin>
+              <BottomMargin>
+                <Button
+                  primary
+                  icon="palette"
+                  text="Pink Theme"
+                  onPress={() => {
+                    this.props.setTheme('pinkTheme')
+                    this.props.navigation.dispatch(NavigationActions.reset({
+                      index: 0,
+                      actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
+                    }))
+                  }} />
+              </BottomMargin>
+            </Dialog>
+            :
+            <View/>
+          }
           <Margin>
             <Button
               primary
               icon="palette"
-              text="Pink Theme"
+              text="Change Theme"
               onPress={() => {
-                this.props.setTheme('pinkTheme')
-                this.props.navigation.dispatch(NavigationActions.reset({
-                  index: 0,
-                  actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
-                }))
-              }} />
-          </Margin>
-          <Margin>
-            <Button
-              primary
-              icon="palette"
-              text="Green Theme"
-              onPress={() => {
-                this.props.setTheme('greenTheme')
-                this.props.navigation.dispatch(NavigationActions.reset({
-                  index: 0,
-                  actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
-                }))
+                this.setState({ themePopup: true })
               }} />
           </Margin>
 
@@ -86,4 +110,8 @@ const Container = styled.ScrollView`
 
 const Margin = styled.View`
   margin: 20px 20px 0 20px;
+`
+
+const BottomMargin = styled.View`
+  margin: 0 20px 20px 20px;
 `
