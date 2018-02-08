@@ -1,8 +1,9 @@
-import React                           from 'react'
-import { Text, View, Image, Platform } from 'react-native'
-import styled                          from 'styled-components/native'
+import React                    from 'react'
+import { Text, View, Platform } from 'react-native'
+import styled                   from 'styled-components/native'
+import SvgIcon                  from 'react-native-svg-icon'
 
-import logo from '../../assets/icons/khor_icon_trans.png'
+import svgs from '../../assets/svgs.js'
 
 export default class SideMenuHeader extends React.Component {
   render() {
@@ -10,7 +11,16 @@ export default class SideMenuHeader extends React.Component {
       <Margin>
         <FlexRow>
           <MarginRight>
-            <Logo source={logo}/>
+            <SvgIcon
+              name="LogoInner"
+              fill={this.props.theme.palette.primaryColor}
+              height={80}
+              width={80}
+              viewBox={'0 0 100 100'}
+              svgs={svgs} />
+            {/* <SvgIcon
+              name="LogoInner"
+              svgs={svgs} /> */}
           </MarginRight>
           <FlexCenter>
             <BoxBorder color={this.props.theme.palette.accentColor}>
@@ -48,11 +58,6 @@ const MarginRight = styled.View`
 const FlexRow = styled.View`
   flex: 1;
   flex-direction: row;
-`
-
-const Logo = styled.Image`
-  width: 80px;
-  height: 80px;
 `
 
 const FlexCenter = styled.View`
