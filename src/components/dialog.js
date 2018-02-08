@@ -7,7 +7,7 @@ import styled         from 'styled-components/native'
 class StyledDialog extends React.Component {
   render() {
     return (
-      <FloatingContainer>
+      <FloatingContainer size={this.props.theme.toolbar.container.height}>
         <Dialog>
           <Dialog.Title>
             <HeaderText color={this.props.theme.palette.secondaryTextColor}>
@@ -37,10 +37,12 @@ export default connect(mapStateToProps)(StyledDialog)
 const FloatingContainer = styled.View`
   position: absolute;
   z-index: 1;
-  top: 100px;
   left: 0;
   right: 0;
+  top: ${props => props.size};
   bottom: 0;
+  flex: 1;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 `

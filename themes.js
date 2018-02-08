@@ -5,9 +5,12 @@ import { fade }     from 'material-ui/utils/colorManipulator'
 
 import {
   pink700,
+  green800,
+  red800,
+  purple800,
+  teal700,
   blueGrey700,
-  white,
-  green900 } from './colors.js'
+  white } from './colors.js'
 
 let height = 90
 let padding = 25
@@ -50,12 +53,30 @@ export const defaultTheme = {
 
 export const greenTheme = deepAssign({}, cloneDeep(defaultTheme) ,{
   palette: {
-    primaryColor: green900,
+    primaryColor: green800,
   }
 })
 
 export const pinkTheme = deepAssign({}, cloneDeep(defaultTheme) ,{
   palette: {
     primaryColor: pink700,
+  }
+})
+
+export const redTheme = deepAssign({}, cloneDeep(defaultTheme) ,{
+  palette: {
+    primaryColor: red800,
+  }
+})
+
+export const blueTheme = deepAssign({}, cloneDeep(defaultTheme) ,{
+  palette: {
+    primaryColor: teal700,
+  }
+})
+
+export const purpleTheme = deepAssign({}, cloneDeep(defaultTheme) ,{
+  palette: {
+    primaryColor: purple800,
   }
 })

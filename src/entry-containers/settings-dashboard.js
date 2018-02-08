@@ -28,26 +28,27 @@ class SettingsDashboard extends React.Component {
           leftElement='menu'
           onLeftElementPress={()=>{this.props.navigation.navigate('DrawerToggle')}}
         />
-        <Container color={this.props.theme.palette.canvasColor}>
-          {
-            this.state.themePopup ?
-            <Dialog header='Theme Select' body='Pick your favorite color.'>
-              <BottomMargin>
-                <Button
-                  primary
-                  icon="palette"
-                  text="Green Theme"
-                  onPress={() => {
-                    this.props.setTheme('greenTheme')
-                    this.props.navigation.dispatch(NavigationActions.reset({
-                      index: 0,
-                      actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
-                    }))
-                  }} />
+        {
+          this.state.themePopup ?
+          <Dialog header='Theme Select' body='Pick your favorite color.'>
+            <BottomMargin>
+              <Button
+                primary
+                color="red"
+                icon="palette"
+                text="Red Theme"
+                onPress={() => {
+                  this.props.setTheme('redTheme')
+                  this.props.navigation.dispatch(NavigationActions.reset({
+                    index: 0,
+                    actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
+                  }))
+                }} />
               </BottomMargin>
               <BottomMargin>
                 <Button
                   primary
+                  color="pink"
                   icon="palette"
                   text="Pink Theme"
                   onPress={() => {
@@ -57,11 +58,54 @@ class SettingsDashboard extends React.Component {
                       actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
                     }))
                   }} />
-              </BottomMargin>
-            </Dialog>
-            :
-            <View/>
-          }
+                </BottomMargin>
+                <BottomMargin>
+                  <Button
+                    primary
+                    color="green"
+                    icon="palette"
+                    text="Green Theme"
+                    onPress={() => {
+                      this.props.setTheme('greenTheme')
+                      this.props.navigation.dispatch(NavigationActions.reset({
+                        index: 0,
+                        actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
+                      }))
+                    }} />
+                  </BottomMargin>
+                  <BottomMargin>
+                    <Button
+                      primary
+                      color="blue"
+                      icon="palette"
+                      text="Blue Theme"
+                      onPress={() => {
+                        this.props.setTheme('blueTheme')
+                        this.props.navigation.dispatch(NavigationActions.reset({
+                          index: 0,
+                          actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
+                        }))
+                      }} />
+                    </BottomMargin>
+                    <BottomMargin>
+                      <Button
+                        primary
+                        color="purple"
+                        icon="palette"
+                        text="Purple Theme"
+                        onPress={() => {
+                          this.props.setTheme('purpleTheme')
+                          this.props.navigation.dispatch(NavigationActions.reset({
+                            index: 0,
+                            actions: [ NavigationActions.navigate({ routeName: 'SettingsDashboard'}) ]
+                          }))
+                        }} />
+                      </BottomMargin>
+                    </Dialog>
+                    :
+                    <View/>
+                  }
+        <Container color={this.props.theme.palette.canvasColor}>
           <Margin>
             <Button
               primary
